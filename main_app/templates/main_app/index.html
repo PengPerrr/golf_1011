@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<META HTTP-EQUIV="pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+<META HTTP-EQUIV="expires" CONTENT="0">
+
+<html lang="en" xmlns:width="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高尔夫评测系统</title>
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+
+<body>
+    <div class="nav">
+        <ul>
+            <li class="active">姿态检测</li>
+            <li>球杆追踪</li>
+        </ul>
+    </div>
+    <div class="main">
+        <div class="one">
+            <label class="file_upload">
+                13帧数检测和对齐:请选择模板并上传一个视频
+                <input type="file" class="pmc_input" multiple>
+            </label>
+            <div id="BarContent" style="margin: 20px 300px 20px 300px; display:none">
+                <div class="w3-light-grey">
+                    <div id="myBar" class="w3-container w3-green" style="height:24px; width:0%;">
+                    </div>
+                </div>
+                <p id="myP">开始处理...</p>
+            </div>
+            <button class="btn pmc_btn">提交</button>
+            <form action="{%url 'refresh_page' %}" method="POST">
+                {% csrf_token %}
+                <button class="btn">重置</button>
+            </form>
+            <div class="coach_video_preview">
+                <div class="title">模板视频:</div>
+                <table id="coach_table">
+                    <tr>
+                        <td>
+                          <video id="coach_video1" src="media/coach/DJ-driver-cut-encode.mp4" controls preload="auto" poster="media/coach/DJ-driver-cut-encode.jpg" type="video/mp4" loop></video>
+                        </td>
+                        <td>
+                          <video id="coach_video2" src="media/coach/DJ-iron-cut-encode.mp4" controls preload="auto" poster="media/coach/DJ-iron-cut-encode.jpg" type="video/mp4" loop></video>
+                        </td>
+                        <td>
+                          <video id="coach_video3" src="media/coach/RM-driver-cut-encode.mp4" controls preload="auto" poster="media/coach/RM-driver-cut-encode.jpg" type="video/mp4" loop></video>
+                        </td>
+                        <td>
+                          <video id="coach_video4" src="media/coach/WT-driver-cut-encode.mp4" controls preload="auto" poster="media/coach/WT-driver-cut-encode.jpg" type="video/mp4" loop></video>
+                        </td>
+			            <td>
+                          <video id="coach_video5" src="media/coach/CM-iron-cut-encode.mp4" controls preload="auto" poster="media/coach/CM-iron-cut-encode.jpg" type="video/mp4" loop></video>
+                      	</td>
+                    </tr>
+                    <tr>
+                      <td>
+                       <div class="radio-container">
+                         <input type="radio" name="coach_video" value="coach_video1"> DJ-driver
+                       </div>
+                      </td>
+                      <td>
+                       <div class="radio-container">
+                         <input type="radio" name="coach_video" value="coach_video2"> DJ-iron
+                       </div>
+                      </td>
+                      <td>
+                       <div class="radio-container">
+                         <input type="radio" name="coach_video" value="coach_video3"> RM-driver
+                       </div>
+                      </td>
+                      <td>
+                       <div class="radio-container">
+                         <input type="radio" name="coach_video" value="coach_video4"> WT-driver
+                       </div>
+                      </td>
+		              <td>
+                        <div class="radio-container">
+                          <input type="radio" name="coach_video" value="coach_video5"> CM-iron
+                        </div>
+                      </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="preview" style="display:none">
+                <div class="title">上传视频预览:</div>
+                <div class="videos">
+                    <video src="" controls type="video/mp4" loop></video>
+                    <video src="" controls type="video/mp4" loop></video>
+                </div>
+            </div>
+            <div class="result" style="display:none">
+                <div class="title">结果:</div>
+                <div class="img1">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                </div>
+                <div class="img2">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                </div>
+                <div class="video">
+                    <video src="" controls type="video/mp4" loop></video>
+                </div>
+
+                <button class="btn pmc_download_btn">下载</button>
+                <form action="{%url 'refresh_page' %}" method="POST">
+                    {% csrf_token %}
+                    <button class="btn pmc_again_btn">再来一个</button>
+                </form>
+            </div>
+        </div>
+        <div class="two" style="display:none;">
+            <label class="file_upload">
+                球杆追踪：请上传一个视频
+                <input type="file" class="wy_input">
+            </label>
+
+            <div id="BarContent_wy" style="margin: 20px 300px 20px 300px; display:none">
+                <div class="w3-light-grey">
+                    <div id="myBar_wy" class="w3-container w3-green" style="height:24px; width:0%;">
+                    </div>
+                </div>
+                <div>
+                    <p id="myP_wy">开始处理...</p>
+                </div>
+            </div>
+
+            <button class="btn wy_btn">提交</button>
+            <form action="{%url 'refresh_page' %}" method="POST">
+                {% csrf_token %}
+                <button class="btn">重置</button>
+            </form>
+            <div class="preview" style="display:none">
+                <div class="title">上传视频预览:</div>
+                <div class="videos">
+                    <video src="" controls loop></video>
+                </div>
+            </div>
+            <div class="result" style="display:none">
+                <div class="title">结果:</div>
+                <div class="video">
+                    <div style="text-align: center">
+                        <div>速度视频</div>
+                        <video id="wy_v1" src="" controls loop></video>
+                        <img src="/media/img_speed.png" width="98%" style="margin:0 auto;">
+                    </div>
+                    <div style="text-align: center">
+                        <div>加速度视频</div>
+                        <video id="wy_v2" src="" controls loop></video>
+                        <img src="/media/img_acc.png" width="98%" style="margin:0 auto;">
+                    </div>
+                </div>
+                <button class="btn wy_download_btn">下载速度视频</button>
+                <button class="btn wy_download_btn">下载加速度视频</button>
+            </div>
+        </div>
+    </div>
+    <script src="/static/axios.min.js"></script>
+    <script src="/static/index.js"></script>
+</body>
+
+</html>

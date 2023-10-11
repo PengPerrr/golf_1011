@@ -1,0 +1,293 @@
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+}
+
+button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+
+input {
+    background: none;
+    outline: none;
+    border: 0px;
+    padding: 0;
+    margin: 0;
+
+}
+
+select {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    padding-right: 14px;
+}
+
+ol,
+ul {
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+li {
+
+    list-style: none
+}
+
+img {
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+i {
+    font-style: normal;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+.nav {
+    width: 100%;
+    height: 80px;
+}
+
+.nav ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.nav ul li {
+    width: 100px;
+    height: 60px;
+    line-height: 60px;
+
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: black;
+    cursor: pointer;
+}
+
+.nav ul li:hover {
+    border-bottom: 2px solid lightseagreen;
+}
+
+.nav ul li.active {
+    border-bottom: 2px solid lightseagreen;
+}
+
+.nav ul li:nth-of-type(1) {
+    margin: 0 20px 0 300px;
+}
+
+.main {
+    width: 100%;
+}
+
+.file_upload {
+    margin: 30px 0 0 300px;
+    display: block;
+    width: 500px;
+    height: 100px;
+    line-height: 100px;
+    background-color: lightgray;
+
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    color: black;
+    border-radius: 8px;
+
+}
+
+.file_upload input {
+    display: none;
+}
+
+.btn {
+    margin: 15px 0 0 300px;
+
+    width: 100px;
+    height: 40px;
+    background-color: blue;
+    border-radius: 4px;
+
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.coach_video_preview {
+    display: block;
+}
+
+.coach_video_preview .title {
+    margin: 15px 0 0 300px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+#coach_table {
+    width: 70%;
+    border-collapse: collapse;
+    border: none;
+    margin: 0 auto;
+}
+
+#coach_table td {
+    border: none;
+    padding: 5px;
+    vertical-align: top;
+    text-align: center;
+}
+#coach_table th {
+    border: none;
+}
+
+#coach_table video {
+    width: auto;
+    height: 250px;
+    object-fit: contain;
+}
+
+.coach_video_preview .radio-container {
+    margin: 10px 0;
+}
+
+.preview {
+    margin: 15px 0 0 300px;
+}
+
+.preview .title {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.preview .videos {
+    margin: 15px 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.preview .videos video {
+    object-fit: contain;
+    width: 50%;
+    height: auto;
+    margin: 0 20px 0 0;
+}
+
+.result {
+    margin: 15px 0 0 300px;
+    display: flex;
+}
+
+.result .title {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 5px 0 15px 0px;
+}
+
+.one .result .img1,
+.one .result .img2 {
+    display: grid;
+    grid-template-rows: repeat(13, 1fr);
+    float: left;
+    width: auto;
+    align-items: center;
+}
+
+.one .result .img1 {
+    margin-right: 20px; /* 添加左边的间隙 */
+}
+
+.one .result .img1 img,
+.one .result .img2 img {
+    object-fit: cover;
+    height: 400px;
+    width: auto;
+}
+
+.one .video {
+    margin: 35px 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 90%;
+    gap: 5px;
+}
+
+.one .video video {
+    margin: 35px 0 0 0;
+    object-fit: contain;
+    align-items: center;
+    width: 800px;
+}
+
+.pmc_download_btn {
+    margin:5px 0 20px 10px;
+    width: 200px;
+}
+
+.pmc_again_btn {
+    margin:5px 0 20px 10px;
+    width: 200px;
+}
+
+
+.two .result {
+    margin: 15px 0 0 300px;
+}
+
+.two .result .title {
+    margin: 5px 0 15px 0;
+}
+
+.two .result .video {
+    margin: 20px 0 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.two .result .video video {
+    width: 98%;
+    object-fit: cover;
+    margin: 0 0 0 0;
+}
+
+.wy_download_btn {
+    margin-left: 0;
+    width: 240px;
+}
